@@ -4,7 +4,7 @@ https://oukayuka.booth.pm/items/1312652
 
 ## サポートページ
 
-https://oukayuka.booth.pm/items/1312652
+https://github.com/oukayuka/ReactBeginnersBook-2.0
 
 ## 期間
 
