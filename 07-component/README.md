@@ -22,3 +22,41 @@
   - JavaScriptで記述
   - マウントする場所ではJSXのタグ
   - コンポーネントそれ自身はJavaScriptのクラスや関数として定義
+
+
+# 7-6. Presentational ComponentとContainer Component
+
+コンポーネント
+- Class Component
+- Function Component
+
+
+別の側面からコンポーネントを分類
+- Presentational Component
+  - 主に見た目を担うコンポーネント
+  - どのように見えるか
+  - 内部にDOMマークアップをふんだんに持つ
+  - データやふるまいをPropsとして一方的に受け取る
+  - FluxのStoreに依存しない
+  - 自身の状態を持たない（UIの状態は除く）
+  - データの変更に介入しない
+  - 関数コンポーネントで表現されることが多い
+- Container Component
+  - 処理を担うコンポーネント
+  - どのように機能するか
+  - DOMマークアップを可能な限り持たない
+  - データやふるまいを他のコンポーネントに受け渡す
+  - FluxのActionを実行したり、FluxのStoreに依存する
+  - しばしばデータの状態を持つ
+  - しばしばデータの変更に介入して、任意の処理を行う
+  - HOCやRender Props, Hooksが使われることが多い
+
+## Reactらしくて一番きれいなコンポーネントの作り方
+- 関数コンポーネントで見た目だけを整えた `Presentational Component` を作る
+- それをインポートして、 Hooks や HOC で必要な機能を追加していき、別途 `Container Component` を作る
+
+
+最初から状態や機能を盛り込んだContainer Componentを作るのはあまり得策ではない  
+--> コンポーネントの再利用性やテスタビリティが高くなるから
+
+Presentational Componentだけ集めてコンポーネントのスタイルガイドを作ったり、Container Componentにする際に追加した機能だけをテストする、などがやりやすい
