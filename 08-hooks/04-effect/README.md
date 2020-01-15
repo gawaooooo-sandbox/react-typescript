@@ -8,7 +8,7 @@
 
 ## useEffect()
 
-```
+```ts
 useEffect(() => {
   doSomething(); // コンポーネントのレンダリング直前に実行される
 

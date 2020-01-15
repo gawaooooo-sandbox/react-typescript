@@ -55,7 +55,7 @@ HOCを使って関数コンポーネントにLocal Stateやライフサイクル
   - あるとしても、使う場面がありそうなのは `useRef()`, `useMemo()` くらいか？
 - useRef(): DOMへの参照のためのrefオブジェクトを取得するためのものだが、そのcurrentプロパティの値は変更可能でどんな値でも保持することができるので、インスタンス変数のように使える
   - 任意のLocal Stateの前回レンダリング時の値を保持しておきた場合とかはこんなふうに書ける
-    ```
+    ```jsx
     const Counter: FC = () => {
       const [count, setCount] = useState(0);
 
@@ -71,12 +71,12 @@ HOCを使って関数コンポーネントにLocal Stateやライフサイクル
     ```
 
 - useMemo(): useEffect()によく似ているが、副作用を伴う処理を行うのではなく、任意の計算結果を保持しておきたいときに使う
-  ```
+  ```ts
   const memoValue = useMemo(() => calculateSomething(), [watchVar])
   ```
   - 第二引数の配列に渡された変数が前回のレンダリング時と差分があれば、第一引数の実行結果が戻り値として返される
   - パフォーマンス最適化のためによく使われることがあるが、特定のPropsが変更されたときだけ任意の子コンポーネントの再レンダリングを行いたい場合はこうする
-  ```
+  ```jsx
   const Parent: FC<{a: string, b: string}> = ({a, b}) => {
     const child1 = useMemo(() => <Child1 a={a} />, [a]);
     const child2 = useMemo(() => <Child2 b={b} />, [b]);

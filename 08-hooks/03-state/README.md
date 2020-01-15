@@ -10,7 +10,7 @@
 
 関数定義の最初の方に `useState()` をプレーンに連ねて書く
 
-```
+```ts
 const [foo, setFoo] = useState(100)
 const [bar, setBar] = useState('Initial Bar')
 const [hoge, setHoge] = useState(true)
