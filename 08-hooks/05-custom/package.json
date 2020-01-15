@@ -21,7 +21,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "precommit": "lint-staged",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'; stylelint 'src/**/*.css'"
   },
   "eslintConfig": {
@@ -66,5 +65,10 @@
       "stylelint --fix",
       "git add"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
