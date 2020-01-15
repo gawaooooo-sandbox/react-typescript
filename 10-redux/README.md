@@ -53,3 +53,47 @@ Storeが変更されたら、参照していたViewにも速やかに反映さ�
 
 React公式が負けがち
 
+# 10-2. Reduxの登場
+
+Reduxの作者はドキュメントやブログ記事の説得力がすごい
+
+一気にデファクトスタンダードに
+
+開発者コミュニティで人気を博したライブラリの作者を内部に取り込むというのが実質的にFacebookのReactチームの常套戦略になっている
+
+## Reduxの何がよかったか
+
+Reduxの三つの原則
+- Single source of truth (信頼できる唯一の情報源)
+  - アプリケーションの状態がただひとつのStoreオブジェクトによるツリー構造で表現されるということ
+  - 複数のStoreが存在すると、Store間のデータのやり取りが面倒になるので、ひとつのオブジェクトい集約
+  - シングルツリーにすることで、Undo/Redoといった機能も簡単に実装できたりする
+- State is read-only (状態は読み取り専用)
+  - ViewやイベントのコールバックがStoreの状態を直接書き換えることが許されない
+  - Storeの変更のためには必ずActionを発行する必要がある
+  - 変更がActionに集約されることで、予期せぬところからの書き換えを防いでいる
+  - ReduxのActionは単なるプレーンオブジェクト
+- Changes are made with pure functions (変更は純粋関数にて行われる)
+  - 状態の変更は Reducer というあらかじめ定義された純粋関数によって行われるということ
+  - `(prevState, action) => newState`
+    - Actionが同じなら、必ず新旧の状態の差分も同じであることが保証される
+
+
+Viewから発行されたActionは、Dispatcher で割り振られて Reducerに渡される
+
+ReducerはそのActionと現在のStateを受け取って、新しいStateを返す
+
+`reduce` -> `減らす` だが、科学の分野では `還元する` `減数分裂させる` という意味もある
+
+`Redux`の名前の由来でもある
+
+
+ReduxはActionを振り分けるだけ
+
+Reduxでは書き換えの手順とその結果のStateの差分が厳密に定義されているので、動作の信頼性が高くテストやデバッグがやりやすい
+
+ReduxはReact専用ではない
+
+Reduxの公式ドキュメントには全部書いてあるから読もう
+
+[Redux公式](https://redux.js.org/)
