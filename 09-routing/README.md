@@ -39,3 +39,13 @@ Reactアプリはすべてがコンポーネントで構築されているはず
 
 ## ドキュメント
 [React Router](https://reacttraining.com/react-router/web/guides/quick-start)
+
+
+# 9-3. React Routerの使い方
+ルーティング遷移時にスクロール位置が変わらない
+
+たいていのSPA用ルーティングライブラリの挙動はそう
+
+History APIのpushState()を使ったルーティングでは履歴が変わって新しいページがレンダリングされても、スクロール位置は遷移前のままになる
+
+`componentDidMount()`に`window.scrollTo(0, 0` を仕込んだコンポーネントを作って、DOMツリーの上のほうでマウントさせるみたいな処理が必要になる
