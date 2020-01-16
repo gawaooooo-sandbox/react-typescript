@@ -46,7 +46,7 @@
 ### Cons
 - Action Creatorが副作用を持つ
 - 本来のReduxはひとつのAction CreatorがひとつにActionを発行するだけだったが、そのあり方から大きく離れている
-- Propos, Local Stateの変化のみが振る舞いを定義するというReactコンポーネントの本来のあり方を変える
+- Props, Local Stateの変化のみが振る舞いを定義するというReactコンポーネントの本来のあり方を変える
 - Action Creatorの入れ子。可読性が低くなる
 
 ### 総評
