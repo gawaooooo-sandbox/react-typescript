@@ -21,7 +21,7 @@ const App: React.FC = () => {
                 {/* <img src={logo} className="App-logo" alt="logo" /> */}
                 <img {...logoAttrs} />
                 {title && <p>{title}</p>}
-                {targets.map(target => (<p>Hello, {target}!</p>))}
+                {targets.map((target, index) => (<p key={index}>Hello, {target}!</p>))}
                 <p>
                     Edit <code>src/App.tsx</code> and save to reload.
                 </p>
